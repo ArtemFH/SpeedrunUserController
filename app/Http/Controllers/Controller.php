@@ -11,8 +11,8 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    public function __construct()//Проверка доступа по ролям
-    {
-        $this->middleware('can:moderator');
-    }
+//    public function __construct()
+//    {
+//        $this->middleware('can:admin');
+//    }
 }
