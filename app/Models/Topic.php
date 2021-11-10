@@ -2,16 +2,8 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Validation\ValidationException;
-use Illuminate\Foundation\Validation\ValidatesRequests;
-
-
-class Topic extends Model
+class Topic extends BaseModel
 {
-    use HasFactory, ValidatesRequests;
-
     protected $fillable = [
         'name',
         'text',
@@ -23,14 +15,18 @@ class Topic extends Model
         'name' => 'required|min:6|max:50'
     ];
 
-    public function createTP($request)
+    public function indexTopic()
     {
-        try {
-            return self::create($this->validate($request, $this->rules));
-        } catch (\Exception $exception) {
-            if ($exception instanceof ValidationException) {
-                return response()->json($exception->validator->getMessageBag(), $exception->status);
-            }
-        }
+        return $this->index();
+    }
+
+    public function storeTopic($request)
+    {
+        return $this->store($request, $this->rules);
+    }
+
+    public function showTopic($id)
+    {
+        return $this->show($id);
     }
 }
