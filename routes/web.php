@@ -27,6 +27,10 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/approved/{id}', [UserController::class, 'approved'])->name('approved');
 
     Route::get('/rejected/{id}', [UserController::class, 'rejected'])->name('rejected');
+
+    Route::get('/users', [UserController::class, 'users'])->name('users');
+
+    Route::get('/ban/{id}', [UserController::class, 'ban'])->name('ban');
 });
 
 Route::post('/send/{id}', [ReplyController::class, 'store'])->name('send');
