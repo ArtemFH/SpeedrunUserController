@@ -16,10 +16,10 @@ class UserSeeder extends Seeder
     {
         $users = [
             [
-                'email' => 'admin@admin.admin',
+                'email' => 'forum@forum.ru',
                 'name' => 'admin',
                 'last_name' => 'admin',
-                'password' => '$2y$10$mEKIfHvsOFxgsw5YBMLuFee2FGbRMNG.LnRzG/WfP22ZQicwRrphS', //admin
+                'password' => '$2y$10$jiXZe.QrgOmZibZUYkTQj.SsDfliTlOyd3U1xktbUDjJL4mLrYPeW', //FM40
                 'role_id' => DB::table('roles')->where('name', '=', 'admin')->pluck('id')->first()
             ]
         ];
