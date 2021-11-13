@@ -7,26 +7,54 @@ class Topic extends BaseModel
     protected $fillable = [
         'name',
         'text',
-        'status'
+        'status_id'
     ];
 
     protected $rules = [
-        'text' => 'required|max:255',
-        'name' => 'required|min:6|max:50'
+        'name' => 'required|max:50',
+        'text' => 'required|max:1000'
     ];
 
     public function indexTopic()
     {
-        return $this->index();
+        $data = [
+            'title' => 'Главная страница'
+        ];
+        $topics = $this->index()->where('status_id', '=', '1');
+        return view('home', compact('topics'))->with($data);
+
     }
 
     public function storeTopic($request)
     {
-        return $this->store($request, $this->rules);
+        $this->store($request, $this->rules);
+        return redirect(route('home'));
+    }
+
+    public function createTopic()
+    {
+        $data = [
+            'title' => 'Создать тему'
+        ];
+
+        return view('topic.store')->with($data);
     }
 
     public function showTopic($id)
     {
-        return $this->show($id);
+        $data = [
+            'title' => "Просмотр темы: $id"
+        ];
+
+        $topic = $this->show($id);
+        $replies = Reply::where('topic_id', $id)->get();
+        return view('topic.show', compact('topic', 'replies'))->with($data);
+    }
+
+    // Eloquent
+
+    public function status()
+    {
+        return $this->belongsTo(Activity::class);
     }
 }
