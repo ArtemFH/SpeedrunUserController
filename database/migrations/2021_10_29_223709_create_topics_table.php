@@ -16,8 +16,8 @@ class CreateTopicsTable extends Migration
         Schema::create('topics', function (Blueprint $table) {
             $table->id();
             $table->string('name', 50)->nullable(false);
-            $table->string('text', 255)->nullable(false);
-            $table->foreignId('status')->nullable(false)->default(2)->constrained('activities')->cascadeOnDelete();
+            $table->string('text', 1000)->nullable(false);
+            $table->foreignId('status_id')->nullable(false)->default(2)->constrained('activities')->cascadeOnDelete();
             $table->timestamps();
         });
     }

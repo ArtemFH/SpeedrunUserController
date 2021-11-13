@@ -16,9 +16,11 @@ class UserSeeder extends Seeder
     {
         $users = [
             [
-                'email' => 'forum@forum.ru',
-                'password' => 'FM40',
-                'role_id' => '2'
+                'email' => 'admin@admin.admin',
+                'name' => 'admin',
+                'last_name' => 'admin',
+                'password' => '$2y$10$mEKIfHvsOFxgsw5YBMLuFee2FGbRMNG.LnRzG/WfP22ZQicwRrphS', //admin
+                'role_id' => DB::table('roles')->where('name', '=', 'admin')->pluck('id')->first()
             ]
         ];
         DB::table('users')->insert($users);
