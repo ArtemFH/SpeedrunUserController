@@ -27,7 +27,7 @@
                 @csrf
                 <div>
                     <div class="form-group">
-                        <label for="text" class="col-form-label-lg">Ваш ответ</label>
+                        <label for="text" class="col-form-label-lg" style="color: #B4956D !important;">Ваш ответ</label>
                         <input id="text" class="form-control" name="text" autocomplete="off" type="text" value="" placeholder="Введите ваш ответ">
                         @error('text')
                         <div class="alert alert-danger">{{ $message }}</div>

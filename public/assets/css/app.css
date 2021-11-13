@@ -1,7 +1,11 @@
+* {
+    color: #B4956D !important;
+}
+
 body {
     margin: 0;
     padding: 0;
-    background-color: #1C313A;
+    background-color: #141215;
     font-weight: 400;
 }
 
@@ -22,7 +26,7 @@ nav {
 }
 
 .nav-link {
-    color: #ffefcf !important;
+    color: #B4956D !important;
 }
 
 .enthusiast {
@@ -38,7 +42,7 @@ nav {
 }
 
 .navbar-scroll {
-    background-color: #4f8088;
+    background-color: #4f808863;
     padding: 15px 100px !important;
     transition: all .3s;
 }
@@ -56,16 +60,16 @@ nav {
     background-color: transparent;
     color: white;
     border-width: 0;
-    border-left: 5px solid #4F8088;
-    border-right: 5px solid #4F8088;
-    border-top: 5px solid #4F8088;
+    border-left: 5px solid #4f808863;
+    border-right: 5px solid #4f808863;
+    border-top: 5px solid #4f808863;
 }
 
 .list-group-item:last-child {
     border-radius: 0 0 15px 15px;
-    border-left: 5px solid #4F8088;
-    border-right: 5px solid #4F8088;
-    border-bottom: 5px solid #4F8088;
+    border-left: 5px solid #4f808863;
+    border-right: 5px solid #4f808863;
+    border-bottom: 5px solid #4f808863;
 }
 
 .list-group-item:hover {
@@ -75,13 +79,13 @@ nav {
 
 .list-group-item:first-child {
     color: white;
-    background-color: #4F8088;
+    background-color: #4f808863;
     text-decoration: none !important;
     text-align: center;
     border-radius: 15px 15px 0 0;
-    border-left: 5px solid #4F8088;
-    border-right: 5px solid #4F8088;
-    border-top: 5px solid #4F8088;
+    border-left: 5px solid #4f808863;
+    border-right: 5px solid #4f808863;
+    border-top: 5px solid #4f808863;
 }
 
 .list-group-item:first-child:hover {
@@ -97,7 +101,7 @@ nav {
 form {
     margin: 0 auto;
     border-radius: 10px;
-    background-color: #4F8088;
+    background-color: #4f808863;
     max-width: 400px;
     border: 1px solid #342E27;
 }
@@ -124,7 +128,7 @@ form {
 }
 
 .buttonUnder {
-    background-color: #4F8088;
+    background-color: #4f808863;
     box-shadow: none !important;
     border: none !important;
     margin: 0 auto;
@@ -180,7 +184,7 @@ select:focus {
 
 .card {
     border: 1px solid rgba(0, 0, 0, 0.2);
-    background-color: #4f8088;
+    background-color: #4f808863;
     width: 100%;
 }
 
@@ -209,7 +213,7 @@ footer {
 }
 
 .footer-scroll {
-    background-color: #4f8088;
+    background-color: #4f808863;
     transition: background-color .3s;
 }
 
@@ -228,7 +232,7 @@ footer div p {
 
 .button-navbar {
     transition: background-color .5s;
-    background-color: #4f8088;
+    background-color: #4f808863;
     border-radius: 15px;
     padding: 10px 15px;
     color: white !important;
@@ -287,17 +291,17 @@ footer div p {
 }
 
 .active .page-link:hover {
-    background-color: #4F8088 !important;
+    background-color: #4f808863 !important;
     color: #86213D !important;
 }
 
 .active .page-link {
-    background-color: #4F8088 !important;
+    background-color: #4f808863 !important;
     color: #86213D !important;
 }
 
 .disabled .page-link {
-    background-color: #4F8088 !important;
+    background-color: #4f808863 !important;
     color: #86213D !important;
 }
 
@@ -339,6 +343,10 @@ footer div p {
 .custom-file-input {
     padding-top: 6px;
     height: 30px;
+}
+
+.form-group {
+    color: white !important;
 }
 
 form {
@@ -388,7 +396,7 @@ form {
 .nomination-block {
     text-align: center;
     font-weight: 600;
-    border-right: 5px solid #4F8088;
+    border-right: 5px solid #4f808863;
     display: grid;
     align-items: center;
     padding: 0;
@@ -427,6 +435,10 @@ form {
     margin: auto 0;
 }
 
+.col-form-label-lg {
+    color: white !important;
+}
+
 .col-9 {
     padding-top: 15px;
     padding-bottom: 15px;
@@ -458,7 +470,7 @@ form {
 
 .bottom-block-profile {
     background-color: transparent;
-    border: 5px solid #4F8088;
+    border: 5px solid #4f808863;
     border-radius: 15px 15px 0 0;
 }
 
@@ -492,7 +504,7 @@ form {
 
 .status-confirmed {
     color: white;
-    background-color: #4F8088;
+    background-color: #4f808863;
 }
 
 .block-button-status {
@@ -563,7 +575,7 @@ form {
 .buttonGet {
     width: 100%;
     border-radius: 0 0 15px 15px;
-    background-color: #4F8088;
+    background-color: #4f808863;
     border: none;
     height: 45px;
 }
@@ -612,7 +624,7 @@ button {
 
 .hardwareAj {
     background-color: transparent;
-    border: 5px solid #4F8088;
+    border: 5px solid #4f808863;
     border-radius: 15px;
     width: 90%;
     margin: 0 auto 10px auto;
