@@ -55,6 +55,7 @@ nav {
 .list-group-item {
     background-color: transparent;
     color: white;
+    border-width: 0;
     border-left: 5px solid #4F8088;
     border-right: 5px solid #4F8088;
     border-top: 5px solid #4F8088;
