@@ -63,6 +63,12 @@ class User extends BaseModel implements AuthenticatableContract, AuthorizableCon
         return redirect(route('home'));
     }
 
+    public function users()
+    {
+        $users = User::where('role_id', 1)->get();
+        return view('admin.users.index', compact('users'))->with(['title' => 'Просмотр пользователей']);
+    }
+
     // Eloquent
 
     public function role()

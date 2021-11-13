@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use Illuminate\Support\Facades\Auth;
+
 class Topic extends BaseModel
 {
     protected $fillable = [
@@ -36,8 +38,10 @@ class Topic extends BaseModel
         $data = [
             'title' => 'Создать тему'
         ];
-
-        return view('topic.store')->with($data);
+        if (!Auth::user()->banned) {
+            return view('topic.store')->with($data);
+        }
+        return redirect(route('home'));
     }
 
     public function showTopic($id)

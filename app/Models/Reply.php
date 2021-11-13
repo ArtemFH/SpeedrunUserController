@@ -29,11 +29,14 @@ class Reply extends BaseModel
 
     public function storeReply($request, $id)
     {
-        if (Topic::find($id)->status->name == 'approved') {
-            $this->store($request->merge(['user_id' => Auth::id(), 'topic_id' => $id]), $this->rules);
-            return redirect(route('topic.show', $id));
+        if (!Auth::user()->banned) {
+            if (Topic::find($id)->status->name == 'approved') {
+                $this->store($request->merge(['user_id' => Auth::id(), 'topic_id' => $id]), $this->rules);
+                return redirect(route('topic.show', $id));
+            }
+            return redirect(route('topic.show', $id))->withErrors(['text' => 'Тема не подтверждена']);
         }
-        return redirect(route('topic.show', $id))->withErrors(['text' => 'Тема не подтверждена']);
+        return redirect(route('topic.show', $id));
     }
 
     // Eloquent

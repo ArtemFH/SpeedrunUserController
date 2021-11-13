@@ -93,4 +93,15 @@ class UserController extends Controller
         $topic = Topic::findOrFail($id);
         return view('admin.show', compact('topic'))->with(['title' => "Просмотр темы: $id"]);
     }
+
+    public function users()
+    {
+        return $this->model->users();
+    }
+
+    public function ban($id)
+    {
+        User::find($id)->update(['banned' => true]);
+        return $this->model->users();
+    }
 }
