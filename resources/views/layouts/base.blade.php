@@ -30,7 +30,7 @@
                 @auth()
                     @can('admin')
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('home') }}">Админ-панель</a>
+                            <a class="nav-link" href="{{ route('admin.index') }}">Админ-панель</a>
                         </li>
                     @endcan
                 @endauth

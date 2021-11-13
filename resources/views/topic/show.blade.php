@@ -17,6 +17,8 @@
                         <div class="card-body" style="padding: 5px;">
                             <h7 class="card-title">Автор: {{$reply->user->name}}</h7>
                             <p class="card-text">Ответ: {{$reply->text}}</p>
+                            <hr style="height: 1px; background-color: black">
+                            <p class="card-text">Время: {{$reply->created_at}}</p>
                         </div>
                     @endforeach
                 </div>
