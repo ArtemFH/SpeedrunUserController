@@ -1,5 +1,6 @@
 @extends('layouts.base')
+@extends('topic.index')
 @section('head')
     @parent
-    <title>Homepage</title>
+    <title>{{$title}}</title>
 @endsection

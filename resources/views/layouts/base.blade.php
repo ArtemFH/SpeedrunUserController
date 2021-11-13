@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <meta name="csrf-token" content="{{ csrf_token() }}">
-        {{--        <link rel="shortcut icon" href="{{url("/images/robot-logo.png")}}" type="image/png">--}}
+        <link rel="shortcut icon" href="{{url("/images/logo.png")}}" type="image/png">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
         <link href="{{ asset('assets/css/app.css') }}" media="all" rel="stylesheet" type="text/css"/>
         <link href="{{ asset('assets/css/media.css') }}" media="all" rel="stylesheet" type="text/css"/>
@@ -16,7 +16,7 @@
 <body id="bootstrap-overrides">
 @section('nav')
     <nav class="navbar fixed-top navbar-expand-lg navbar-light" id="navbar">
-        {{--        <img class="logoImg" src={{url("/images/robot-logo.png")}}>--}}
+        <img class="logoImg" src={{url("/images/logo.png")}}>
         <h2>Funtikoff</h2>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                 aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,7 +30,7 @@
                 @auth()
                     @can('admin')
                         <li class="nav-item">
-                            {{--                            <a class="nav-link" href="{{ route('admin.panel') }}">Admin</a>--}}
+                            <a class="nav-link" href="{{ route('home') }}">Админ-панель</a>
                         </li>
                     @endcan
                 @endauth
@@ -39,7 +39,10 @@
                 <div class="nav-end" id="but-end">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link button-navbar" href="{{ route('user.logout') }}">Sign out</a>
+                            <a class="nav-link button-navbar" href="{{ route('topic.create') }}">Создать новую тему</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link button-navbar" href="{{ route('user.logout') }}">Выйти из аккаунта</a>
                         </li>
                     </ul>
                 </div>
@@ -62,11 +65,7 @@
 <div class="padding-top">
     @section('body')
     @show
-    @section('CPU')
-    @show
-    @section('GPU')
-    @show
-    @section('RAM')
+    @section('topic')
     @show
 </div>
 @section('footer')
