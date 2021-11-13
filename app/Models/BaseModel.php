@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Exception;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\QueryException;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Validation\ValidatesRequests;

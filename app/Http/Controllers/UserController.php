@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Topic;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -13,6 +14,7 @@ class UserController extends Controller
     public function __construct(User $model)
     {
         $this->model = $model;
+        $this->middleware('can:admin')->only('approved', 'rejected', 'indexAdmin', 'showAdmin');
     }
 
     public function registration(Request $request)
@@ -62,5 +64,33 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    // Admin-logic
+
+    public function approved($id)
+    {
+        Topic::find($id)->update(['status_id' => '1']);
+        return redirect(route('admin.index'));
+    }
+
+    public function rejected($id)
+    {
+        Topic::find($id)->update(['status_id' => '3']);
+        return redirect(route('admin.index'));
+    }
+
+    public function indexAdmin()
+    {
+        $topicsApp = Topic::where('status_id', 1)->get();
+        $topicsEx = Topic::where('status_id', 2)->get();
+        $topicsRej = Topic::where('status_id', 3)->get();
+        return view('admin.index', compact('topicsApp', 'topicsEx', 'topicsRej'))->with(['title' => 'Просмотр тем']);
+    }
+
+    public function showAdmin($id)
+    {
+        $topic = Topic::findOrFail($id);
+        return view('admin.show', compact('topic'))->with(['title' => "Просмотр темы: $id"]);
     }
 }

@@ -14,12 +14,6 @@ class ReplyController extends Controller
         $this->model = $model;
     }
 
-    public function index()
-    {
-        //
-    }
-
-
     public function store(Request $request, $id)
     {
         return $this->model->storeReply($request, $id);
