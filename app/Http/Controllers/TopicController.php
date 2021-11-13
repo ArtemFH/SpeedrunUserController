@@ -7,45 +7,31 @@ use Illuminate\Http\Request;
 
 class TopicController extends Controller
 {
-    private Topic $model;
+    protected $model;
 
-    public function __construct()
+    public function __construct(Topic $model)
     {
-        return $this->model = new Topic();
+        $this->model = $model;
     }
 
     public function index()
     {
-        $data = $this->model->indexTopic();
-        dd($data);
+        return $this->model->indexTopic();
     }
 
     public function create()
     {
-        $data = $this->model->createTopic();
-        dd($data);
+        return $this->model->createTopic();
     }
 
     public function store(Request $request)
     {
-        $data = $this->model->storeTopic($request);
-        dd($data);
+        return $this->model->storeTopic($request);
     }
 
     public function show($id)
     {
-        $data = $this->model->showTopic($id);
-        dd($data);
-    }
-
-    public function edit($id)
-    {
-        //
-    }
-
-    public function update(Request $request, $id)
-    {
-        //
+        return $this->model->showTopic($id);
     }
 
     public function destroy($id)

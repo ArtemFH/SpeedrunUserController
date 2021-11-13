@@ -8,31 +8,33 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
-    private User $model;
+    protected $model;
 
-    public function __construct()
+    public function __construct(User $model)
     {
-        return $this->model = new User();
+        $this->model = $model;
     }
 
     public function registration(Request $request)
     {
-        $data = $this->model->registration($request);
-        if ($data) {
-            Auth::login($data);
-            return redirect(route('home'));
-        }
- 
-        return redirect(route('home'))->withErrors([
-            'formError' => 'Error'
-        ]);
+        return $this->model->registration($request);
+    }
+
+    public function login(Request $request)
+    {
+        return $this->model->login($request);
+    }
+
+    public function logout()
+    {
+        return $this->model->logout();
     }
 
     public function registrationAvailability()
     {
-        $data = array(
-            'title' => 'Registration'
-        );
+        $data = [
+            'title' => 'Регистрация'
+        ];
 
         if (Auth::check()) {
             return redirect(route('home'));
@@ -40,22 +42,11 @@ class UserController extends Controller
         return view('user.registration')->with($data);
     }
 
-    public function login(Request $request)
-    {
-        if (Auth::attempt($request->only(['email', 'password']))) {
-            return redirect()->intended(route('home'));
-        }
-
-        return redirect(route('user.login'))->withErrors([
-            'email' => 'Error email or password'
-        ]);
-    }
-
     public function loginAvailability()
     {
-        $data = array(
-            'title' => 'Login'
-        );
+        $data = [
+            'title' => 'Авторизация'
+        ];
 
         if (Auth::check()) {
             return redirect(route('home'));
@@ -63,38 +54,7 @@ class UserController extends Controller
         return view('user.login')->with($data);
     }
 
-    public function logout()
-    {
-        Auth::logout();
-        return redirect(route('home'));
-    }
-
     public function index()
-    {
-        //
-    }
-
-    public function create()
-    {
-        //
-    }
-
-    public function store(Request $request)
-    {
-        //
-    }
-
-    public function show($id)
-    {
-        //
-    }
-
-    public function edit($id)
-    {
-        //
-    }
-
-    public function update(Request $request, $id)
     {
         //
     }
