@@ -18,7 +18,19 @@ Route::name('user.')->group(function () {
 
     Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 });
+
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::get('/index', [UserController::class, 'indexAdmin'])->name('index');
+
+    Route::get('/show/{id}', [UserController::class, 'showAdmin'])->name('show');
+
+    Route::get('/approved/{id}', [UserController::class, 'approved'])->name('approved');
+
+    Route::get('/rejected/{id}', [UserController::class, 'rejected'])->name('rejected');
+});
+
 Route::post('/send/{id}', [ReplyController::class, 'store'])->name('send');
+
 Route::resource('user', UserController::class);
 Route::resource('topic', TopicController::class);
 Route::resource('reply', ReplyController::class);
