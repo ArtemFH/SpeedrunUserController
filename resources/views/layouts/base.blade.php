@@ -32,15 +32,20 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('admin.index') }}">Админ-панель</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('admin.users') }}">Пользователи</a>
+                        </li>
                     @endcan
                 @endauth
             </ul>
             @auth()
                 <div class="nav-end" id="but-end">
                     <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link button-navbar" href="{{ route('topic.create') }}">Создать новую тему</a>
-                        </li>
+                        @if(!auth()->user()->banned)
+                            <li class="nav-item">
+                                <a class="nav-link button-navbar" href="{{ route('topic.create') }}">Создать новую тему</a>
+                            </li>
+                        @endif
                         <li class="nav-item">
                             <a class="nav-link button-navbar" href="{{ route('user.logout') }}">Выйти из аккаунта</a>
                         </li>
