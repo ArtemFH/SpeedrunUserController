@@ -23,23 +23,26 @@
                     @endforeach
                 </div>
             @endif
-            @if(!auth()->user()->banned)
-                <form style="all: unset; width: auto; max-width: 100% !important;padding-top: 5px !important; padding: 1.25rem" class="card-body" method="POST" action="{{ route('send', $topic->id) }}">
-                    @csrf
-                    <div>
-                        <div class="form-group">
-                            <label for="text" class="col-form-label-lg" style="color: #B4956D !important;">Ваш ответ</label>
-                            <input id="text" class="form-control" name="text" autocomplete="off" type="text" value="" placeholder="Введите ваш ответ">
-                            @error('text')
-                            <div class="alert alert-danger">{{ $message }}</div>
-                            @enderror
+            @auth()
+                @if(!auth()->user()->banned)
+                    <form style="all: unset; width: auto; max-width: 100% !important;padding-top: 5px !important; padding: 1.25rem" class="card-body" method="POST"
+                          action="{{ route('send', $topic->id) }}">
+                        @csrf
+                        <div>
+                            <div class="form-group">
+                                <label for="text" class="col-form-label-lg" style="color: #B4956D !important;">Ваш ответ</label>
+                                <input id="text" class="form-control" name="text" autocomplete="off" type="text" value="" placeholder="Введите ваш ответ">
+                                @error('text')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <button class="buttonSuccess btn btn-lg btn-primary" type="submit" name="send" value="1">Оставить ответ</button>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <button class="buttonSuccess btn btn-lg btn-primary" type="submit" name="send" value="1">Оставить ответ</button>
-                        </div>
-                    </div>
-                </form>
-            @endif
+                    </form>
+                @endif
+            @endauth
         </div>
     </div>
 @endsection
